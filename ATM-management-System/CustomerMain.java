@@ -1,5 +1,5 @@
 import java.io.Serializable;
-
+import java.util.Objects;
 public class CustomerMain implements Serializable {
     private int customerid;
     private int balance;  
@@ -78,5 +78,13 @@ public class CustomerMain implements Serializable {
     private boolean isValidDateOfBirth(String dob) {
         String dobRegex = "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$";
         return dob.matches(dobRegex);
+      
+    }
+    
+    public static boolean isAdminAuthenticated(String adminusername, String adminpin) {
+        String adminUsername = "admin";
+        String adminPin = "admin123";
+
+        return Objects.equals(adminusername, adminUsername) && Objects.equals(adminpin, adminPin);
     }
 }
